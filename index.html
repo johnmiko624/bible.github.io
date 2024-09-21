@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bible Books Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #1a3d2b; /* Dark green background */
+            margin: 0;
+            color: #f0f0f0; /* Light text color */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(to right, #4caf50, #1b5e20); /* Green gradient */
+            color: white;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+            animation: backgroundAnimation 15s infinite alternate;
+        }
+
+        @keyframes backgroundAnimation {
+            0% { background: #4caf50; }
+            50% { background: #1b5e20; }
+            100% { background: #4caf50; }
+        }
+
+        header h1 {
+            font-size: 3.5em;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        main {
+            display: flex;
+            justify-content: space-between;
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px 0;
+        }
+
+        .book-list {
+            flex: 3;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            margin-right: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #e0e0e0;
+            margin-bottom: 30px;
+        }
+
+        .book-list ul {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .book-list li {
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.2); /* Light background for books */
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .book-list li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .sidebar {
+            flex: 1;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .sidebar h3 {
+            color: #e0e0e0;
+            margin-bottom: 15px;
+        }
+
+        .sidebar a {
+            display: block;
+            margin: 5px 0;
+            color: #4caf50;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.2);
+            transition: background 0.3s;
+        }
+
+        .sidebar a:hover {
+            background: #4caf50;
+            color: white;
+        }
+
+        .featured-verse {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+            animation: slideIn 1s;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #4caf50;
+            color: white;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .social-links a {
+            margin: 0 10px;
+            color: white;
+            font-size: 1.5em;
+            text-decoration: none;
+        }
+
+        .contact-form {
+            margin-top: 20px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: calc(100% - 20px);
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .contact-form button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background: #4caf50;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .contact-form button:hover {
+            background: #1b5e20;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bible Books Hub</h1>
+        <p>Explore the Wisdom of the Scriptures</p>
+    </header>
+    
+    <main>
+        <div class="book-list">
+            <h2>Books of the Bible</h2>
+            <ul>
+                <li><a href="https://www.biblegateway.com/passage/?search=Genesis&version=NIV" target="_blank">Genesis</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=Exodus&version=NIV" target="_blank">Exodus</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=Leviticus&version=NIV" target="_blank">Leviticus</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=Numbers&version=NIV" target="_blank">Numbers</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=Deuteronomy&version=NIV" target="_blank">Deuteronomy</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=Joshua&version=NIV" target="_blank">Joshua</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=Judges&version=NIV" target="_blank">Judges</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=Ruth&version=NIV" target="_blank">Ruth</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=1%20Samuel&version=NIV" target="_blank">1 Samuel</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=2%20Samuel&version=NIV" target="_blank">2 Samuel</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=1%20Kings&version=NIV" target="_blank">1 Kings</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=2%20Kings&version=NIV" target="_blank">2 Kings</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=1%20Chronicles&version=NIV" target="_blank">1 Chronicles</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=2%20Chronicles&version=NIV" target="_blank">2 Chronicles</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=Ezra&version=NIV" target="_blank">Ezra</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=Nehemiah&version=NIV" target="_blank">Nehemiah</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=Esther&version=NIV" target="_blank">Esther</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=Job&version=NIV" target="_blank">Job</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=Psalms&version=NIV" target="_blank">Psalms</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=Proverbs&version=NIV" target="_blank">Proverbs</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=Ecclesiastes&version=NIV" target="_blank">Ecclesiastes</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=Song%20of%20Solomon&version=NIV" target="_blank">Song of Solomon</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=Isaiah&version=NIV" target="_blank">Isaiah</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=Jeremiah&version=NIV" target="_blank">Jeremiah</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=Lamentations&version=NIV" target="_blank">Lamentations</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=Ezekiel&version=NIV" target="_blank">Ezekiel</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=Daniel&version=NIV" target="_blank">Daniel</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=Hosea&version=NIV" target="_blank">Hosea</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=Joel&version=NIV" target="_blank">Joel</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=Amos&version=NIV" target="_blank">Amos</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=Obadiah&version=NIV" target="_blank">Obadiah</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=Jonah&version=NIV" target="_blank">Jonah</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=Micah&version=NIV" target="_blank">Micah</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=Nahum&version=NIV" target="_blank">Nahum</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=Habakkuk&version=NIV" target="_blank">Habakkuk</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=Zephaniah&version=NIV" target="_blank">Zephaniah</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=Haggai&version=NIV" target="_blank">Haggai</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=Zechariah&version=NIV" target="_blank">Zechariah</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=Malachi&version=NIV" target="_blank">Malachi</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=Matthew&version=NIV" target="_blank">Matthew</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=Mark&version=NIV" target="_blank">Mark</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=Luke&version=NIV" target="_blank">Luke</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=John&version=NIV" target="_blank">John</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=Acts&version=NIV" target="_blank">Acts</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=Romans&version=NIV" target="_blank">Romans</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=1%20Corinthians&version=NIV" target="_blank">1 Corinthians</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=2%20Corinthians&version=NIV" target="_blank">2 Corinthians</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=Galatians&version=NIV" target="_blank">Galatians</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=Ephesians&version=NIV" target="_blank">Ephesians</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=Philippians&version=NIV" target="_blank">Philippians</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=Colossians&version=NIV" target="_blank">Colossians</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=1%20Thessalonians&version=NIV" target="_blank">1 Thessalonians</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=2%20Thessalonians&version=NIV" target="_blank">2 Thessalonians</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=1%20Timothy&version=NIV" target="_blank">1 Timothy</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=2%20Timothy&version=NIV" target="_blank">2 Timothy</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=Titus&version=NIV" target="_blank">Titus</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=Philemon&version=NIV" target="_blank">Philemon</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=Hebrews&version=NIV" target="_blank">Hebrews</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=James&version=NIV" target="_blank">James</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=1%20Peter&version=NIV" target="_blank">1 Peter</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=2%20Peter&version=NIV" target="_blank">2 Peter</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=1%20John&version=NIV" target="_blank">1 John</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=2%20John&version=NIV" target="_blank">2 John</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=3%20John&version=NIV" target="_blank">3 John</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=Jude&version=NIV" target="_blank">Jude</a></li>
+                <li><a href="https://www.biblegateway.com/passage/?search=Revelation&version=NIV" target="_blank">Revelation</a></li>
+            </ul>
+        </div>
+
+        <div class="sidebar">
+            <h3>Related Christian Resources</h3>
+            <a href="https://www.biblegateway.com/" target="_blank">Bible Gateway</a>
+            <a href="https://www.crosswalk.com/" target="_blank">Crosswalk</a>
+            <a href="https://www.christianbook.com/" target="_blank">Christianbook</a>
+            <a href="https://www.desiringgod.org/" target="_blank">Desiring God</a>
+            <a href="https://www.thegospelcoalition.org/" target="_blank">The Gospel Coalition</a>
+
+            <div class="featured-verse">
+                <h3>Featured Verse</h3>
+                <p>"For I know the plans I have for you," declares the Lord, "plans to prosper you and not to harm you, plans to give you hope and a future." - Jeremiah 29:11</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Bible Books Hub</p>
+        <div class="social-links">
+            <a href="https://www.facebook.com/beholdingjesuschurch?mibextid=ZbWKwL" target="_blank">Facebook</a>
+            <a href="https://www.instagram.com/beholdingjesuschurch?fbclid=IwZXh0bgNhZW0CMTAAAR2EL-cGwv4ghWBSlsyflTygYWLeHbxSQPs3WcaNbIjhXKIlmp4oqfP2zG0_aem_ySSM7qCgxMDZvg37L8u8YQ" target="_blank">Instagram</a>
+        </div>
+
+        <div class="contact-form">
+            <h3>Contact Us</h3>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </div>
+    </footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
